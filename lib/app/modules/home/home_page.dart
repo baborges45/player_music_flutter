@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:player_music_flutter/app/modules/home/home_store.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,9 +21,26 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
         backgroundColor: Colors.black,
       ),
       backgroundColor: Colors.black,
-      body: Observer(
-        builder: (context) => Text('${store.counter}'),
-      ),
+      body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (_, int index) {
+            return ListTile(
+              onTap: () => Modular.to.pushNamed('/player',
+                  arguments:
+                      'https://images-na.ssl-images-amazon.com/images/I/81bqaMrqceL._AC_SX425_.jpg'),
+              leading: Image.network(
+                  'https://images-na.ssl-images-amazon.com/images/I/81bqaMrqceL._AC_SX425_.jpg'),
+              title: Text(
+                'Californication',
+                style: GoogleFonts.notoSans(),
+              ),
+              subtitle: Text(
+                'Red Hot Chilli Peppers',
+                style: GoogleFonts.notoSans(),
+              ),
+              contentPadding: EdgeInsets.all(10),
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           store.increment();
