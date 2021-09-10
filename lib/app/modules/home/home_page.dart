@@ -31,11 +31,11 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                   'https://images-na.ssl-images-amazon.com/images/I/81bqaMrqceL._AC_SX425_.jpg'),
               title: Text(
                 'Californication',
-                style: GoogleFonts.notoSans(),
+                style: GoogleFonts.ptSansCaption(),
               ),
               subtitle: Text(
                 'Red Hot Chilli Peppers',
-                style: GoogleFonts.notoSans(),
+                style: GoogleFonts.ptSansCaption(),
               ),
               contentPadding: EdgeInsets.all(10),
             );
